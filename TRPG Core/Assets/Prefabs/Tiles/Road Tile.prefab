@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7011035198734350494
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 516761868378204706, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_Name
+      value: Road Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409881663057687838, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4764596
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409881663057687838, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6814614
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409881663057687838, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+--- !u!1 &6189240717914743377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3794470677128616655, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+  m_PrefabInstance: {fileID: 7011035198734350494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7379107790405784252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 516761868378204706, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+  m_PrefabInstance: {fileID: 7011035198734350494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3803094177484956340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379107790405784252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c04cfa938889a44afab0d66d3e5ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TileName: Road
+  tileX: 0
+  tileY: 0
+  moveCost: 1
+  _highlight: {fileID: 8308224136644340107}
+  _movableHighlight: {fileID: 6189240717914743377}
+  _attackableHighlight: {fileID: 8095505392004563252}
+  _isWalkable: 1
+  tileLeft: {fileID: 0}
+  tileRight: {fileID: 0}
+  tileTop: {fileID: 0}
+  tileBottom: {fileID: 0}
+  OccupiedUnit: {fileID: 0}
+--- !u!1 &8095505392004563252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1230942974802868650, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+  m_PrefabInstance: {fileID: 7011035198734350494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8308224136644340107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1297193421866340629, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+  m_PrefabInstance: {fileID: 7011035198734350494}
+  m_PrefabAsset: {fileID: 0}

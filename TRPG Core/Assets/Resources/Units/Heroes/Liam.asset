@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5464604b3f157e849a005a813a6803a8, type: 3}
+  m_Name: Liam
+  m_EditorClassIdentifier: 
+  Faction: 0
+  UnitPrefab: {fileID: 3338537307214631067, guid: 42423da4e55ac20499950d7309f0aa08, type: 3}
+  Description: The hero that started it all
+  MenuSprite: {fileID: 0}
