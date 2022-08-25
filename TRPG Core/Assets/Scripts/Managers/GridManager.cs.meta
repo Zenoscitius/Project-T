@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 32007b8bc9e3a8a42a6af93576339436
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _grassTile: {instanceID: 0}
+  - _mountainTile: {instanceID: 0}
+  - _cam: {instanceID: 0}
+  - map: {fileID: 2800000, guid: e5a5076fff86ac74fa8b0e05b7b4bf7e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
