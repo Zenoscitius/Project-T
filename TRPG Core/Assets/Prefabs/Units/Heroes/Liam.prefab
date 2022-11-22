@@ -458,11 +458,10 @@ MonoBehaviour:
   UnitName: Liam
   OccupiedTile: {fileID: 0}
   Faction: 0
+  itemInventory: {fileID: 11400000, guid: 4de32c55ee6f17d4e9d1dd3207a13db2, type: 2}
   speed: 6
   maxHealth: 10
   currentHealth: 10
   healthBar: {fileID: 8497603114401591901}
-  inventory:
-  - {fileID: 3913119233868395129, guid: b546cac597386eb41822cac07e513c78, type: 3}
   attack: 4
   attackRange: 1

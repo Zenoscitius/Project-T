@@ -7,7 +7,8 @@ public class ScriptableItem : ScriptableObject
 {
     public ItemType Type;
     public Sprite MenuSprite;
-    public string Description;
+    public string Description, ItemName;
+    public int maxDurability, currentDurability;
 }
 public enum ItemType
 {

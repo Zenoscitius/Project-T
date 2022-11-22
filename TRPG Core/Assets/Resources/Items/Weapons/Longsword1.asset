@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ae335581214b84c95abcf089f48fac, type: 3}
+  m_Name: Longsword1
+  m_EditorClassIdentifier: 
+  Type: 1
+  MenuSprite: {fileID: 21300000, guid: b2f3327f47464544293b6b9018e1296e, type: 3}
+  Description: The standard weapon of most militaries
+  ItemName: Longsword
+  maxDurability: 30
+  currentDurability: 15
+  attack: 10
+  attackRange: 1
+  weaponType: 1

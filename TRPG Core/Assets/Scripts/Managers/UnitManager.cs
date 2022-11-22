@@ -7,7 +7,7 @@ public class UnitManager : MonoBehaviour
 {
     public static UnitManager Instance;
 
-    private List<ScriptableUnit> _units;
+    private List<ScriptableUnit> _units, _adjacentUnits;
 
     public BaseHero SelectedHero;
     public BaseEnemy SelectedEnemy;
@@ -78,4 +78,19 @@ public class UnitManager : MonoBehaviour
         else if(SelectedEnemy.attackRange >= SelectedHero.attackRange) SelectedHero.TakeDamage(SelectedEnemy.attack);
         GameManager.Instance.ChangeState(GameState.HeroesTurn);
     }
+
+    /**
+    public List<T> GetAdjacentUnits<T>(Faction faction) where T : BaseUnit
+    {
+        HashSet<Tile> attackableTiles = GridManager.Instance.GetAttackableTiles(UnitManager.Instance.SelectedHero.attackRange, new HashSet<Tile> { UnitManager.Instance.SelectedHero.OccupiedTile });
+        HashSet<BaseEnemy> attackableUnits = new HashSet<BaseEnemy>();
+        foreach (Tile t in attackableTiles)
+        {
+            if (t.OccupiedUnit != null)
+            {
+                if (t.OccupiedUnit.Faction == Faction.Enemy) attackableUnits.Add((BaseEnemy)t.OccupiedUnit);
+            }
+        }
+    }
+    **/
 }

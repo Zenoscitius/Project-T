@@ -5,12 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Scriptable Weapon")]
 public class ScriptableWeapon : ScriptableItem
 {
-    public ItemType ItemType = ItemType.Weapon;
     public int attack;
     public int attackRange;
     public WeaponType weaponType;
 }
-
 public enum WeaponType
 {
     Sword = 1,

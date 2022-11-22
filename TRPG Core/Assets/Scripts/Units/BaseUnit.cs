@@ -7,21 +7,20 @@ public class BaseUnit : MonoBehaviour
     public string UnitName;
     public Tile OccupiedTile;
     public Faction Faction;
+    public Inventory itemInventory;
     public int speed;
     public int maxHealth;
     public int currentHealth;
     public HealthBar healthBar;
-    public List<BaseItem> inventory;
-    public BaseWeapon activeWeapon;
+    public ScriptableWeapon activeWeapon;
     public int attack;
     public int attackRange;
-    public Stats stats;
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        activeWeapon = FindFirstWeaponInInventory();
-        SwitchWeapon(activeWeapon);
+        //activeWeapon = inventory.FindFirstWeaponInInventory();
+        //SwitchWeapon(activeWeapon);
     }
 
     public void TakeDamage(int damage)
@@ -30,19 +29,12 @@ public class BaseUnit : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    public void SwitchWeapon(BaseWeapon weapon)
+    public void SwitchWeapon(ScriptableWeapon weapon)
     {
         if (weapon != null) activeWeapon = weapon;
-        //attack = activeWeapon.attack;
-        //attackRange = activeWeapon.attackRange;
+        attack = activeWeapon.attack;
+        attackRange = activeWeapon.attackRange;
     }
 
-    private BaseWeapon FindFirstWeaponInInventory()
-    {
-        for (int i = 0; i < inventory.Count; i++)
-        {
-            if (inventory[i].type == ItemType.Weapon) return (BaseWeapon)inventory[i];
-        }
-        return null;
-    }
+
 }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseItem : MonoBehaviour
+[System.Serializable]
+public class BaseItem
 {
-    public string itemName;
     public int maxDurability;
     public int remainingDurability;
     public ItemType type;

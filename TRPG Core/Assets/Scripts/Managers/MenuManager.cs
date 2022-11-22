@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
+using JetBrains.Annotations;
+using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
@@ -12,6 +16,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _selectedHeroObject, _tileObject, _tileUnitObject;
     [SerializeField] private GameObject _preperationsMenu, _generalMenu, _combatMenu, _conversationScene;
     [SerializeField] private ActionMenu _actionMenu;
+    [SerializeField] private InventoryMenu _inventoryMenu;
+    [SerializeField] private ItemMenu _itemMenu;
+    private ScriptableItem _activeItem;
 
     private Tile activeTile;
     private void Awake()
@@ -87,7 +94,6 @@ public class MenuManager : MonoBehaviour
         _actionMenu.talkButton.interactable = (talkList.Count != 0);
 
         _actionMenu.gameObject.SetActive(true);
-
     }
 
     //TODO empty area: unit, status, guide, options, suspend, end
@@ -114,6 +120,82 @@ public class MenuManager : MonoBehaviour
         _conversationScene.SetActive(true);
     }
 
+
+
+    public void Attack()
+    {
+        //TODO: transfer attack script here with no automove
+    }
+
+    public void Talk()
+    {
+        //TODO: initialize conversation with selected ally
+    }
+
+    //Item sub-menu (use/equip, trade>target selector, discard > confirm)
+    public void ShowInventory()
+    {
+        Inventory activeInventory = UnitManager.Instance.SelectedHero.itemInventory;
+        
+        for (int i =0; i<5; i++)
+        {
+            var itemSlot = _inventoryMenu.MenuItemSlotArray[i];
+            if (activeInventory.itemArray[i] != null)
+            {
+               
+               itemSlot.itemName.text = activeInventory.itemArray[i].ItemName;
+               itemSlot.itemDurrability.text = $"{activeInventory.itemArray[i].currentDurability} / {activeInventory.itemArray[i].maxDurability}";
+               itemSlot.itemSprite.sprite = activeInventory.itemArray[i].MenuSprite;
+               itemSlot.selectorButton.interactable = true;
+            }
+            else
+            {
+               itemSlot.itemName.text = null;
+               itemSlot.itemDurrability.text = null;
+               itemSlot.itemSprite.sprite = null;
+               itemSlot.selectorButton.interactable = false;
+            }
+        }
+        _inventoryMenu.MenuItemSlotArray[0].selectorButton.Select();
+        _inventoryMenu.gameObject.SetActive(true);
+    }
+
+    public void SelectItem(int itemNumber)
+    {
+        //set active item
+        _activeItem = UnitManager.Instance.SelectedHero.itemInventory.itemArray[itemNumber];
+        if (_activeItem == null) return;
+
+        //display context menu adjacent to item, button pos + offset x/y
+
+        Vector3 invMenuPosition = _inventoryMenu.MenuItemSlotArray[itemNumber].itemName.transform.position;
+        _itemMenu.transform.position = invMenuPosition;
+        _itemMenu.gameObject.SetActive(true);
+    }
+
+    public void UseItem()
+    {
+        ScriptableConsummable _activeConsummable = (ScriptableConsummable)_activeItem;
+        _activeConsummable.UseItem(UnitManager.Instance.SelectedHero);
+        _itemMenu.gameObject.SetActive(false);
+    }
+
+    public void EquipItem()
+    {
+        UnitManager.Instance.SelectedHero.SwitchWeapon((ScriptableWeapon)_activeItem);
+        _itemMenu.gameObject.SetActive(false);
+    }
+
+    public void TradeItem()
+    {
+        _itemMenu.gameObject.SetActive(false);
+    }
+
+    public void DiscardItem()
+    {
+        _itemMenu.gameObject.SetActive(false);
+    }
+
     public void Wait()
     {
         activeTile.SetUnit(UnitManager.Instance.SelectedHero);
@@ -122,9 +204,5 @@ public class MenuManager : MonoBehaviour
         UnitManager.Instance.SetSelectedHero(null);
         _actionMenu.gameObject.SetActive(false);
     }
-
-    public void Attack()
-    {
-        //TODO: transfer attack script here with no automove
-    }
+    
 }

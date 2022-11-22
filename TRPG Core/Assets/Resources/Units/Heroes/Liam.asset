@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Faction: 0
   UnitPrefab: {fileID: 3338537307214631067, guid: 42423da4e55ac20499950d7309f0aa08, type: 3}
+  itemInventory: {fileID: 11400000, guid: 4de32c55ee6f17d4e9d1dd3207a13db2, type: 2}
   Description: The hero that started it all
   MenuSprite: {fileID: 0}
