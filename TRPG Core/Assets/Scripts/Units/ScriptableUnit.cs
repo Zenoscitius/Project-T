@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,30 @@ public class ScriptableUnit : ScriptableObject
 {
     public Faction Faction;
     public BaseUnit UnitPrefab;
+    public String unitName;
 
     // for menus
     public string Description;
     public Sprite MenuSprite;
+
+    //exhaust
+    public Boolean isExhausted;
+
+
+    public void Exhaust()
+    {
+        isExhausted = true;
+        UnitPrefab.exhaustHighlight.SetActive(true);
+        Debug.Log(isExhausted.ToString());
+    }
+
+    public void Refresh()
+    {
+        isExhausted = false;
+        UnitPrefab.exhaustHighlight.SetActive(false);
+    }
+
+    public bool IsExhausted() { return isExhausted; }
 }
 
 public enum Faction

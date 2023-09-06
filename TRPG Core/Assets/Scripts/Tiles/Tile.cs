@@ -43,12 +43,18 @@ public class Tile : MonoBehaviour
         //If a tile has a unit on it when clicked and...
         if (OccupiedUnit != null)
         {
-            //Logic if hero is selected on the map
+            //Logic if hero is selected on the map that is not exhausted
             if(OccupiedUnit.Faction == Faction.Hero)
             {
-                
-                UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
-                GridManager.Instance.ShowMovableTiles(OccupiedUnit.OccupiedTile, OccupiedUnit.speed, OccupiedUnit.attackRange);                
+                if (!OccupiedUnit.exhaustHighlight.activeSelf)
+                {
+                    UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
+                    GridManager.Instance.ShowMovableTiles(OccupiedUnit.OccupiedTile, OccupiedUnit.speed, OccupiedUnit.attackRange);
+                }
+                else
+                {
+                    MenuManager.Instance.ShowGeneralMenu();
+                }
             }
             else
             {

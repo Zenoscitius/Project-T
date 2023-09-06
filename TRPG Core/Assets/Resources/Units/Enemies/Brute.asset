@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Faction: 1
   UnitPrefab: {fileID: 2086189698550119210, guid: da769a12cb735054e9ffd1a42acf9bbf, type: 3}
+  unitName: Brute
+  Description: 
+  MenuSprite: {fileID: 0}
+  isExhausted: 0

@@ -79,6 +79,54 @@ public class UnitManager : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.HeroesTurn);
     }
 
+    public void CheckEndOfTurn(Faction faction)
+    {
+        int activeUnits = 0;
+        foreach (ScriptableUnit unit in _units)
+        {
+            if (unit.Faction == faction && !unit.IsExhausted())
+            {
+                Debug.Log("Adding " + unit.UnitPrefab.name + " who " + unit.IsExhausted());
+                activeUnits++;
+            }
+        }
+        
+        if (activeUnits == 0)
+        {
+            Debug.Log("No active units, trying to switch turns.");
+            if (GameManager.Instance.GameState == GameState.HeroesTurn)
+            {
+                GameManager.Instance.ChangeState(GameState.EnemiesTurn);
+            }
+            else
+            {
+                GameManager.Instance.ChangeState(GameState.HeroesTurn);
+            }
+            
+        }
+    }
+
+    public void ExhaustSelectedUnit(BaseUnit selectedUnit)
+    {
+        foreach (ScriptableUnit unit in _units)
+        {
+            Debug.Log(unit.name);
+            if (unit.unitName.Equals(selectedUnit.UnitName))
+            {
+                unit.Exhaust();
+                Debug.Log(unit.UnitPrefab.name + " has been exhausted");
+            }
+        }
+    }
+
+    public void RefreshUnits()
+    {
+        foreach (ScriptableUnit unit in _units)
+        {
+            unit.Refresh();
+        }
+    }
+
     /**
     public List<T> GetAdjacentUnits<T>(Faction faction) where T : BaseUnit
     {

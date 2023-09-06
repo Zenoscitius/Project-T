@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,9 @@ public class BaseUnit : MonoBehaviour
     public ScriptableWeapon activeWeapon;
     public int attack;
     public int attackRange;
+
+    public GameObject exhaustHighlight;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -35,6 +39,7 @@ public class BaseUnit : MonoBehaviour
         attack = activeWeapon.attack;
         attackRange = activeWeapon.attackRange;
     }
+
 
 
 }

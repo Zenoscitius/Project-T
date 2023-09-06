@@ -99,8 +99,9 @@ public class MenuManager : MonoBehaviour
     //TODO empty area: unit, status, guide, options, suspend, end
     public void ShowGeneralMenu()
     {
-        _generalMenu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
+        Debug.Log("This is where the general menu would go... IF I HAD ONE");
+        //_generalMenu.SetActive(true);
+        //EventSystem.current.SetSelectedGameObject(null);
         //EventSystem.current.SetSelectedGameObject (_generalFirstButton);
     }
     
@@ -120,11 +121,10 @@ public class MenuManager : MonoBehaviour
         _conversationScene.SetActive(true);
     }
 
-
-
     public void Attack()
     {
-        //TODO: transfer attack script here with no automove
+        UnitManager.Instance.ExhaustSelectedUnit(UnitManager.Instance.SelectedHero);
+        UnitManager.Instance.CheckEndOfTurn(Faction.Hero);
     }
 
     public void Talk()
@@ -177,6 +177,7 @@ public class MenuManager : MonoBehaviour
     {
         ScriptableConsummable _activeConsummable = (ScriptableConsummable)_activeItem;
         _activeConsummable.UseItem(UnitManager.Instance.SelectedHero);
+        UnitManager.Instance.ExhaustSelectedUnit(UnitManager.Instance.SelectedHero);
         _itemMenu.gameObject.SetActive(false);
     }
 
@@ -199,8 +200,9 @@ public class MenuManager : MonoBehaviour
     public void Wait()
     {
         activeTile.SetUnit(UnitManager.Instance.SelectedHero);
-        //TODO: exhaust the hero, check for auto turn end
+        UnitManager.Instance.ExhaustSelectedUnit(UnitManager.Instance.SelectedHero);
         GridManager.Instance.ClearMovementOverlay();
+        UnitManager.Instance.CheckEndOfTurn(Faction.Hero);
         UnitManager.Instance.SetSelectedHero(null);
         _actionMenu.gameObject.SetActive(false);
     }

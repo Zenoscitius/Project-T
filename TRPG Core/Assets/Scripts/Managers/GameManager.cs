@@ -34,8 +34,14 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.SpawnEnemies();
                 break;
             case GameState.HeroesTurn:
+                UnitManager.Instance.RefreshUnits();
+                Debug.Log("Start Heroes Turn");
                 break;
             case GameState.EnemiesTurn:
+                UnitManager.Instance.RefreshUnits();
+                Debug.Log("Start Enemies Turn");
+                //TODO: Enemy turn logic
+                ChangeState(GameState.HeroesTurn);
                 break;
             case GameState.Combat:
                 UnitManager.Instance.StartCombat();
