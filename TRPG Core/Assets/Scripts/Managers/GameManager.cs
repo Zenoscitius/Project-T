@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
                 ChangeState(GameState.HeroesTurn);
                 break;
             case GameState.Combat:
-                UnitManager.Instance.StartCombat();
                 break;
             case GameState.Conversation:
                 break;

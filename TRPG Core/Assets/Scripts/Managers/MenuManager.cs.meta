@@ -9,10 +9,11 @@ MonoImporter:
   - _tileUnitObject: {instanceID: 0}
   - _preperationsMenu: {instanceID: 0}
   - _generalMenu: {instanceID: 0}
-  - _combatMenu: {instanceID: 0}
+  - _attackMenu: {instanceID: 0}
   - _conversationScene: {instanceID: 0}
-  - _inventoryMenu: {fileID: 5662778046647242875, guid: 16469b2eb9f8c5e44a53b3988c2b9cb3, type: 3}
-  - _actionMenu: {fileID: 4381041119569582458, guid: 3e434c0fa855238478d2ff0aaf1c306c, type: 3}
+  - _actionMenu: {instanceID: 0}
+  - _inventoryMenu: {instanceID: 0}
+  - _itemMenu: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

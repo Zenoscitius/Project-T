@@ -40,11 +40,11 @@ public class Inventory : ScriptableObject
         if (!isRemoved) Debug.Log("No such item in inventory");
     }
 
-    public BaseWeapon FindFirstWeaponInInventory()
+    public ScriptableWeapon FindFirstWeaponInInventory()
     {
         for(int i = 0; i < itemArray.Length; i++)
         {
-            if (itemArray[i].Type.Equals(ItemType.Weapon)) return null;
+            if (itemArray[i].Type.Equals(ItemType.Weapon)) return (ScriptableWeapon)itemArray[i];
         }
         return null;
     }

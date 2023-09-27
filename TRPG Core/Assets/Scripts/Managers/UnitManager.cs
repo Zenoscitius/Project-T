@@ -70,13 +70,14 @@ public class UnitManager : MonoBehaviour
         SelectedEnemy = enemy;
     }
 
-    public void StartCombat()
+    public void StartCombat(BaseUnit attacker, BaseUnit defender)
     {
-        Debug.Log($"Combat started with {SelectedHero.UnitName} and {SelectedEnemy.UnitName}");
-        SelectedEnemy.TakeDamage(SelectedHero.attack);
-        if(SelectedEnemy.currentHealth <= 0) Destroy(SelectedEnemy.gameObject);
-        else if(SelectedEnemy.attackRange >= SelectedHero.attackRange) SelectedHero.TakeDamage(SelectedEnemy.attack);
-        GameManager.Instance.ChangeState(GameState.HeroesTurn);
+        Debug.Log($"Combat started with {attacker.UnitName} and {defender.UnitName}");
+        defender.TakeDamage(attacker.attack);
+        if(defender.currentHealth <= 0) Destroy(defender.gameObject);
+        else if(defender.attackRange >= attacker.attackRange) attacker.TakeDamage(defender.attack);
+        UnitManager.Instance.ExhaustSelectedUnit(attacker);
+        UnitManager.Instance.CheckEndOfTurn(attacker.Faction);
     }
 
     public void CheckEndOfTurn(Faction faction)
@@ -117,6 +118,7 @@ public class UnitManager : MonoBehaviour
                 Debug.Log(unit.UnitPrefab.name + " has been exhausted");
             }
         }
+        MenuManager.Instance.CloseAllMenus();
     }
 
     public void RefreshUnits()
@@ -126,19 +128,18 @@ public class UnitManager : MonoBehaviour
             unit.Refresh();
         }
     }
-
-    /**
-    public List<T> GetAdjacentUnits<T>(Faction faction) where T : BaseUnit
+  
+    public List<BaseUnit> GetUnitsInRange(BaseUnit selectedUnit, Faction targetFaction, Tile selectedTile)
     {
-        HashSet<Tile> attackableTiles = GridManager.Instance.GetAttackableTiles(UnitManager.Instance.SelectedHero.attackRange, new HashSet<Tile> { UnitManager.Instance.SelectedHero.OccupiedTile });
-        HashSet<BaseEnemy> attackableUnits = new HashSet<BaseEnemy>();
+        HashSet<Tile> attackableTiles = GridManager.Instance.GetAttackableTiles(selectedUnit.attackRange, new HashSet<Tile> { selectedTile });
+        List<BaseUnit> unitsInRange = new List<BaseUnit>();
         foreach (Tile t in attackableTiles)
         {
             if (t.OccupiedUnit != null)
             {
-                if (t.OccupiedUnit.Faction == Faction.Enemy) attackableUnits.Add((BaseEnemy)t.OccupiedUnit);
+                if (t.OccupiedUnit.Faction == targetFaction) unitsInRange.Add(t.OccupiedUnit);
             }
         }
+        return unitsInRange;
     }
-    **/
 }

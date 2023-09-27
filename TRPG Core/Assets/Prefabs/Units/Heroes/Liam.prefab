@@ -463,9 +463,13 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 10
   healthBar: {fileID: 8497603114401591901}
-  activeWeapon: {fileID: 0}
+  activeWeapon: {fileID: 11400000, guid: a80d64ead2a027f4080b1d345a8abc2e, type: 2}
   attack: 4
   attackRange: 1
+  might: 2
+  dexterity: 2
+  hit: 0
+  crit: 0
   exhaustHighlight: {fileID: 8433943932004102644}
 --- !u!1 &6261363755514964282
 GameObject:

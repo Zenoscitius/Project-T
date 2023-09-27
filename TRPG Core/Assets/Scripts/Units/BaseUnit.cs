@@ -16,6 +16,8 @@ public class BaseUnit : MonoBehaviour
     public ScriptableWeapon activeWeapon;
     public int attack;
     public int attackRange;
+    public int might, dexterity;
+    public double hit, crit;
 
     public GameObject exhaustHighlight;
 
@@ -23,7 +25,7 @@ public class BaseUnit : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        //activeWeapon = inventory.FindFirstWeaponInInventory();
+        activeWeapon = itemInventory.FindFirstWeaponInInventory();
         //SwitchWeapon(activeWeapon);
     }
 
@@ -36,10 +38,9 @@ public class BaseUnit : MonoBehaviour
     public void SwitchWeapon(ScriptableWeapon weapon)
     {
         if (weapon != null) activeWeapon = weapon;
-        attack = activeWeapon.attack;
+        attack = activeWeapon.attack + might;
+        hit = dexterity * activeWeapon.speed;
+        crit = dexterity * 0.01;
         attackRange = activeWeapon.attackRange;
     }
-
-
-
 }

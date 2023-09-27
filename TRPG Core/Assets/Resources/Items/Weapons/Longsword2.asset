@@ -19,5 +19,6 @@ MonoBehaviour:
   maxDurability: 30
   currentDurability: 30
   attack: 10
+  speed: 1
   attackRange: 1
   weaponType: 1
