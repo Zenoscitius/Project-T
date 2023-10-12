@@ -22,7 +22,6 @@ public class ScriptableUnit : ScriptableObject
     {
         isExhausted = true;
         UnitPrefab.exhaustHighlight.SetActive(true);
-        Debug.Log(isExhausted.ToString());
     }
 
     public void Refresh()

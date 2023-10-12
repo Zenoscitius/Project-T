@@ -8,6 +8,7 @@ using TMPro;
 using JetBrains.Annotations;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 
 public class MenuManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private InventoryMenu _inventoryMenu;
     [SerializeField] private ItemMenu _itemMenu;
     [SerializeField] private AttackMenu _attackMenu;
+    [SerializeField] private CombatScene _combatScene;
     private List<BaseUnit> _targets;
     private int _targetIndex = -1;
     private ScriptableItem _activeItem;
@@ -113,7 +115,7 @@ public class MenuManager : MonoBehaviour
         }
         BaseUnit hero = UnitManager.Instance.SelectedHero;
         BaseUnit enemy = _targets[_targetIndex];
-        _attackMenu.heroName.text = hero.name;
+        _attackMenu.heroName.text = hero.UnitName;
         _attackMenu.heroHealth.text = hero.currentHealth.ToString() + "/" + hero.maxHealth.ToString();
         _attackMenu.heroWeaponName.text = hero.activeWeapon.ItemName;
         _attackMenu.heroWeaponDur.text = hero.activeWeapon.currentDurability.ToString() + "/" + hero.activeWeapon.maxDurability.ToString();
@@ -121,7 +123,7 @@ public class MenuManager : MonoBehaviour
         _attackMenu.heroHit.text = "HIT: " + hero.hit.ToString();
         _attackMenu.heroCrit.text = "CRIT: " + hero.crit.ToString();
         _attackMenu.heroWeaponSprite.sprite = hero.activeWeapon.MenuSprite;
-        _attackMenu.enemyName.text = enemy.name;
+        _attackMenu.enemyName.text = enemy.UnitName;
         _attackMenu.enemyHealth.text = enemy.currentHealth.ToString() + "/" + enemy.maxHealth.ToString();
         _attackMenu.enemyWeaponName.text = enemy.activeWeapon.ItemName;
         _attackMenu.enemyWeaponDur.text = enemy.activeWeapon.currentDurability.ToString() + "/" + enemy.activeWeapon.maxDurability.ToString();
@@ -164,7 +166,11 @@ public class MenuManager : MonoBehaviour
         CloseAllMenus();
         activeTile.SetUnit(UnitManager.Instance.SelectedHero);
         GridManager.Instance.ClearMovementOverlay();
-        UnitManager.Instance.StartCombat(UnitManager.Instance.SelectedHero, _targets[_targetIndex]);
+        _combatScene.InitializeCombatScene(UnitManager.Instance.SelectedHero, _targets[_targetIndex], activeTile);
+        _combatScene.gameObject.SetActive(true);
+        _combatScene.PlayCombatAnimation(UnitManager.Instance.SelectedHero, _targets[_targetIndex]);
+        UnitManager.Instance.ExhaustSelectedUnit(UnitManager.Instance.SelectedHero);
+        UnitManager.Instance.CheckEndOfTurn(UnitManager.Instance.SelectedHero.Faction);
     }
 
     //TODO displays the conversation with the given conversation number **determine best way through tutorial

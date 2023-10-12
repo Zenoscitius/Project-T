@@ -16,17 +16,16 @@ public class BaseUnit : MonoBehaviour
     public ScriptableWeapon activeWeapon;
     public int attack;
     public int attackRange;
-    public int might, dexterity;
+    public int might, dexterity, avo;
     public double hit, crit;
-
     public GameObject exhaustHighlight;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        activeWeapon = itemInventory.FindFirstWeaponInInventory();
-        //SwitchWeapon(activeWeapon);
+        SwitchWeapon(itemInventory.FindFirstWeaponInInventory());
+        avo = 50;
     }
 
     public void TakeDamage(int damage)

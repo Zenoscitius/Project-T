@@ -111,11 +111,9 @@ public class UnitManager : MonoBehaviour
     {
         foreach (ScriptableUnit unit in _units)
         {
-            Debug.Log(unit.name);
             if (unit.unitName.Equals(selectedUnit.UnitName))
             {
                 unit.Exhaust();
-                Debug.Log(unit.UnitPrefab.name + " has been exhausted");
             }
         }
         MenuManager.Instance.CloseAllMenus();
