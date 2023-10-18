@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class BaseUnit : MonoBehaviour
@@ -19,6 +20,7 @@ public class BaseUnit : MonoBehaviour
     public int might, dexterity, avo;
     public double hit, crit;
     public GameObject exhaustHighlight;
+    public AnimatorController animatorContoller;
 
     void Start()
     {

@@ -5,8 +5,13 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 504456680188770272, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 516761868378204706, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
       propertyPath: m_Name
       value: Forest Tile
@@ -14,6 +19,10 @@ PrefabInstance:
     - target: {fileID: 1297193421866340629, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626989354375943945, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6664683002289132006, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
       propertyPath: m_RootOrder
@@ -60,18 +69,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8409881663057687838, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2f5b07e8295e213479a0d58c529db62d, type: 3}
+    - target: {fileID: 8409881663057687838, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
       propertyPath: m_Color.b
-      value: 0.16353554
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8409881663057687838, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
       propertyPath: m_Color.g
-      value: 0.2924528
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8409881663057687838, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
       propertyPath: m_Color.r
-      value: 0.122774996
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 516761868378204706, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8023838229184983689}
   m_SourcePrefab: {fileID: 100100000, guid: 4bab86356de53084e81ed58632e95b65, type: 3}
 --- !u!1 &1670199806342236764 stripped
 GameObject:

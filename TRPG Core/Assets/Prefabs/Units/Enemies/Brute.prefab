@@ -84,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2129882652985300312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389236061111660755}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &389236061111660755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129882652985300312}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32476592, y: 0.29467118, z: -0.34053764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3396288343208982991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8550422711222362074
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +150,7 @@ Transform:
   - {fileID: 4844251649536112336}
   - {fileID: 9187829716831848569}
   - {fileID: 951394569148685845}
+  - {fileID: 389236061111660755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4968141761688689751
@@ -162,7 +194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 85bb7393ab08fea4c8d51c01d6f10ee0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d1365e9762fa5e43a0ab9d182fcce6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -202,6 +234,7 @@ MonoBehaviour:
   hit: 0
   crit: 0
   exhaustHighlight: {fileID: 1551898339007283407}
+  animatorContoller: {fileID: 9100000, guid: 6f284aaaee15f374a8b4eb878945395a, type: 2}
 --- !u!95 &7184637024738618123
 Animator:
   serializedVersion: 5
@@ -296,7 +329,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 85bb7393ab08fea4c8d51c01d6f10ee0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d1365e9762fa5e43a0ab9d182fcce6a, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -314,6 +347,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3396288343208982991}
     m_Modifications:
+    - target: {fileID: 1308312828768244854, guid: 3d81e4af453ac5f4cbc712ab992302a5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3083262618617439259, guid: 3d81e4af453ac5f4cbc712ab992302a5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

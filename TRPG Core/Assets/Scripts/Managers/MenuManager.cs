@@ -166,6 +166,9 @@ public class MenuManager : MonoBehaviour
         CloseAllMenus();
         activeTile.SetUnit(UnitManager.Instance.SelectedHero);
         GridManager.Instance.ClearMovementOverlay();
+        Debug.Log(UnitManager.Instance.SelectedHero);
+        Debug.Log(_targets[_targetIndex]);
+        Debug.Log(activeTile);
         _combatScene.InitializeCombatScene(UnitManager.Instance.SelectedHero, _targets[_targetIndex], activeTile);
         _combatScene.gameObject.SetActive(true);
         _combatScene.PlayCombatAnimation(UnitManager.Instance.SelectedHero, _targets[_targetIndex]);

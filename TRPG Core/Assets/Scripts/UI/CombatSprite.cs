@@ -5,6 +5,6 @@ using UnityEngine.UI;
 
 public class CombatSprite : MonoBehaviour
 {
-    public Image unitSprite;
+    public SpriteRenderer unitSpriteRenderer;
     public Animator unitAnimator;
 }

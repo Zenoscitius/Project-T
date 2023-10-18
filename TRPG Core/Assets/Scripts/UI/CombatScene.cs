@@ -19,8 +19,10 @@ public class CombatScene : MonoBehaviour
         attackerDamage.text = "DMG: " + attacker.might.ToString();
         attackerHealthNumber.text = attacker.currentHealth.ToString();
         attackerWeaponName.text = attacker.activeWeapon.ItemName;
-        attackerSprite.unitSprite.sprite = attacker.GetComponentInChildren<SpriteRenderer>().sprite;
-        attackerSprite.unitAnimator.runtimeAnimatorController = attacker.GetComponent<Animator>().runtimeAnimatorController;
+        Debug.Log(attacker.GetComponentInChildren<SpriteRenderer>().sprite);
+        attackerSprite.unitSpriteRenderer.sprite = attacker.GetComponentInChildren<SpriteRenderer>().sprite;
+
+        attackerSprite.unitAnimator.runtimeAnimatorController = attacker.animatorContoller;
         attackerHealthBar.SetMaxHealth(attacker.maxHealth);
         attackerHealthBar.SetHealth(attacker.currentHealth);
 
@@ -30,8 +32,8 @@ public class CombatScene : MonoBehaviour
         defenderDamage.text = "DMG: " + defender.might.ToString();
         defenderHealthNumber.text = defender.currentHealth.ToString();
         defenderWeaponName.text = defender.activeWeapon.ItemName;
-        defenderSprite.unitSprite.sprite = defender.GetComponentInChildren<SpriteRenderer>().sprite;
-        defenderSprite.unitAnimator.runtimeAnimatorController = defender.GetComponent<Animator>().runtimeAnimatorController;
+        defenderSprite.unitSpriteRenderer.sprite = defender.GetComponentInChildren<SpriteRenderer>().sprite;
+        defenderSprite.unitAnimator.runtimeAnimatorController = defender.animatorContoller;
         defenderHealthBar.SetMaxHealth(defender.maxHealth);
         defenderHealthBar.SetHealth(attacker.currentHealth);
     }
@@ -74,11 +76,10 @@ public class CombatScene : MonoBehaviour
             StartCoroutine(WaitCoroutine());
             attacker.TakeDamage(defender.attack);
         }
-
     }
 
     IEnumerator WaitCoroutine()
     {
-        yield return new WaitForSeconds(200);
+        yield return new WaitForSecondsRealtime(5);
     }
 }
